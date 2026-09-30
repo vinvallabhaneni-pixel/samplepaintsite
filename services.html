@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services | Korth & Shannahan Painting and Carpentry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,440;0,9..144,560;0,9..144,650;1,9..144,440;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#221513;
+    --paper:#FFFFFF;
+    --paper-warm:#FBF5F4;
+    --red:#A6332B;
+    --red-dk:#5E1D17;
+    --red-lt:#D98F84;
+    --brass:#B8873D;
+    --line: rgba(34,21,19,.13);
+    --line-lt: rgba(255,255,255,.24);
+    --shadow: 0 18px 40px -18px rgba(34,21,19,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:560;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:.72rem;
+    font-weight:500;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  .ruler{
+    height:14px;
+    background-image: repeating-linear-gradient(90deg, var(--ink) 0 1.5px, transparent 1.5px 24px);
+    background-position:center top;
+    opacity:.4;
+  }
+
+  .utility{
+    background:var(--red-dk); color:var(--paper);
+    font-family:'IBM Plex Mono',monospace; font-size:.74rem;
+    letter-spacing:.03em;
+  }
+  .utility .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    height:38px; gap:20px; overflow:hidden;
+  }
+  .utility a:hover{color:var(--red-lt);}
+  .utility .u-right{display:flex; gap:24px;}
+  @media(max-width:760px){ .utility .u-hide{display:none;} }
+
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex; align-items:center; justify-content:space-between;
+    height:84px;
+  }
+  .wordmark{
+    font-family:'Fraunces',serif; font-weight:560; font-size:1.32rem;
+    display:flex; flex-direction:column; line-height:1.05; color:var(--ink);
+  }
+  .wordmark small{
+    font-family:'IBM Plex Mono',monospace; font-weight:400; font-size:.6rem;
+    letter-spacing:.16em; text-transform:uppercase; color:var(--red); margin-top:4px;
+  }
+  nav.primary{display:flex; align-items:center; gap:34px;}
+  nav.primary a{
+    font-size:.92rem; font-weight:500; position:relative; padding:6px 0;
+  }
+  nav.primary a::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:2px;
+    background:var(--red); transform:scaleX(0); transform-origin:left;
+    transition:transform .25s ease;
+  }
+  nav.primary a:hover::after{transform:scaleX(1);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:.76rem; font-weight:500;
+    letter-spacing:.06em; text-transform:uppercase;
+    padding:13px 22px; border-radius:2px; border:1px solid transparent;
+    cursor:pointer; transition:all .2s ease; white-space:nowrap;
+  }
+  .btn-red{background:var(--red); color:var(--paper);}
+  .btn-red:hover{background:var(--red-dk);}
+  .btn-outline{border-color:currentColor;}
+  .btn-outline:hover{background:var(--line-lt);}
+  .btn-outline.dark:hover{background:rgba(34,21,19,.06);}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:4px;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0;}
+  @media(max-width:920px){
+    nav.primary{display:none;}
+    .header-cta{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  .hero{
+    background:var(--red-dk);
+    background-image: radial-gradient(ellipse 800px 500px at 88% -10%, rgba(217,143,132,.2), transparent 60%);
+    color:var(--paper);
+    position:relative; overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:60px;
+    align-items:center; padding-top:88px; padding-bottom:78px;
+  }
+  .hero .eyebrow{color:var(--red-lt);}
+  .hero h1{
+    font-size:clamp(2.5rem, 4.6vw, 3.9rem);
+    line-height:1.04; margin-top:18px; color:var(--paper);
+  }
+  .hero h1 em{font-style:italic; font-weight:440; color:var(--red-lt);}
+  .hero p.lede{
+    max-width:46ch; margin-top:22px; font-size:1.06rem; color:rgba(255,255,255,.82);
+  }
+  .hero .cta-row{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+  .hero .btn-outline{border-color:rgba(255,255,255,.5); color:var(--paper);}
+  .hero .badge{
+    margin-top:44px; display:flex; align-items:center; gap:14px;
+    font-family:'IBM Plex Mono',monospace; font-size:.72rem; letter-spacing:.04em;
+    color:rgba(255,255,255,.75); border-top:1px solid rgba(255,255,255,.2); padding-top:20px;
+    max-width:420px;
+  }
+  .badge .medal{
+    flex-shrink:0; width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--red-lt); display:flex; align-items:center; justify-content:center;
+    color:var(--red-lt); font-family:'Fraunces',serif; font-size:1.1rem;
+  }
+
+  .chip-fan{position:relative; height:420px;}
+  .chip{
+    position:absolute; width:172px; top:10px; left:calc(50% - 86px);
+    background:var(--paper); border-radius:3px; box-shadow:var(--shadow);
+    transform-origin:bottom center; padding-bottom:16px;
+    transition:transform .45s cubic-bezier(.22,1,.36,1);
+  }
+  .chip .swatch{height:118px; border-radius:3px 3px 0 0; position:relative;}
+  .chip .swatch::after{
+    content:""; position:absolute; top:10px; left:50%; transform:translateX(-50%);
+    width:12px; height:12px; border-radius:50%; background:var(--paper);
+    box-shadow:inset 0 0 0 1px rgba(34,21,19,.15);
+  }
+  .chip .label{padding:12px 14px 0; color:var(--ink);}
+  .chip .label .name{font-family:'Fraunces',serif; font-size:.98rem; font-weight:560;}
+  .chip .label .tag{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.06em; color:rgba(34,21,19,.55); margin-top:4px; text-transform:uppercase;}
+  .chip:nth-child(1){transform:rotate(-13deg) translateX(-86px); z-index:1;}
+  .chip:nth-child(2){transform:rotate(-5deg) translateX(-32px); z-index:2;}
+  .chip:nth-child(3){transform:rotate(4deg) translateX(28px); z-index:3;}
+  .chip:nth-child(4){transform:rotate(12deg) translateX(78px); z-index:4;}
+  .chip-fan:hover .chip:nth-child(1){transform:rotate(-13deg) translateX(-150px) translateY(-6px);}
+  .chip-fan:hover .chip:nth-child(2){transform:rotate(-5deg) translateX(-58px) translateY(-14px);}
+  .chip-fan:hover .chip:nth-child(3){transform:rotate(4deg) translateX(50px) translateY(-14px);}
+  .chip-fan:hover .chip:nth-child(4){transform:rotate(13deg) translateX(148px) translateY(-6px);}
+  @media(max-width:920px){
+    .hero .wrap{grid-template-columns:1fr; padding-top:52px; padding-bottom:56px; gap:10px;}
+    .chip-fan{height:300px; margin-top:20px;}
+    .chip{width:138px; left:calc(50% - 69px);}
+    .chip .swatch{height:96px;}
+  }
+
+  .stats{background:var(--paper-warm); border-bottom:1px solid var(--line);}
+  .stats .wrap{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    padding:34px 32px;
+  }
+  .stat{text-align:center; border-left:1px solid var(--line); padding:0 12px;}
+  .stat:first-child{border-left:none;}
+  .stat .num{font-family:'Fraunces',serif; font-size:2rem; font-weight:560; color:var(--red);}
+  .stat .cap{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(34,21,19,.55); margin-top:4px;}
+  @media(max-width:700px){
+    .stats .wrap{grid-template-columns:repeat(2,1fr); row-gap:26px;}
+    .stat:nth-child(3){border-left:none;}
+  }
+
+  .section{padding:96px 0;}
+  @media(max-width:700px){.section{padding:64px 0;}}
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head .eyebrow{color:var(--red); }
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.5rem); margin-top:14px;}
+  .section-head p{margin-top:14px; color:rgba(34,21,19,.7); max-width:52ch;}
+
+  .about .wrap{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start;}
+  .about-text p{color:rgba(34,21,19,.78); margin-top:16px;}
+  .about-text p:first-of-type{margin-top:20px;}
+  .about-text .btn{margin-top:26px;}
+  .timeline{border-left:2px solid var(--red); padding-left:26px; display:flex; flex-direction:column; gap:34px;}
+  .timeline .yr{font-family:'IBM Plex Mono',monospace; font-size:.72rem; color:var(--red); letter-spacing:.06em;}
+  .timeline .ev{font-family:'Fraunces',serif; font-size:1.12rem; margin-top:4px;}
+  @media(max-width:820px){.about .wrap{grid-template-columns:1fr; gap:44px;}}
+
+  .services{background:var(--red-dk); color:var(--paper);}
+  .services .section-head .eyebrow{color:var(--red-lt);}
+  .services .section-head p{color:rgba(255,255,255,.72);}
+  .rail{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.14);
+  }
+  .rcard{
+    background:var(--red-dk); padding:34px 28px 30px; transition:background .25s ease;
+  }
+  .rcard:hover{background:#7A2A21;}
+  .rcard .swatch-bar{width:44px; height:8px; border-radius:2px; margin-bottom:20px;}
+  .rcard h3{font-size:1.18rem; font-weight:560;}
+  .rcard p{margin-top:10px; font-size:.92rem; color:rgba(255,255,255,.68);}
+  .rcard .go{margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--red-lt); display:inline-block;}
+  @media(max-width:900px){.rail{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.rail{grid-template-columns:1fr;}}
+
+  .work-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:22px;}
+  .work-grid .panel{position:relative; border-radius:4px; overflow:hidden; min-height:260px; display:flex; align-items:flex-end; padding:26px; color:var(--paper); box-shadow:var(--shadow);}
+  .work-grid .panel .ptitle{font-family:'Fraunces',serif; font-size:1.3rem; font-weight:560; position:relative;}
+  .work-grid .panel .ptag{font-family:'IBM Plex Mono',monospace; font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; opacity:.8; position:relative; margin-bottom:6px; display:block;}
+  .p1{grid-row:span 2; background:linear-gradient(155deg,#C1543F,#6E211A);}
+  .p2{background:linear-gradient(155deg,#B8873D,#8C5E22);}
+  .p3{background:linear-gradient(155deg,#8C3F2C,#4A1712);}
+  .work-grid .panel::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,.42), transparent 55%);}
+  @media(max-width:820px){.work-grid{grid-template-columns:1fr;} .p1{grid-row:span 1;}}
+
+  .testi{background:var(--ink); color:var(--paper); position:relative;}
+  .testi .wrap{padding-top:96px; padding-bottom:96px;}
+  .testi .mark{font-family:'Fraunces',serif; font-size:4rem; color:var(--red-lt); line-height:1; margin-bottom:8px;}
+  .testi blockquote{
+    font-family:'Fraunces',serif; font-size:clamp(1.3rem,2.6vw,1.85rem); font-weight:440; font-style:italic;
+    line-height:1.4; margin:0; max-width:820px; min-height:150px;
+  }
+  .testi .attrib{margin-top:26px; font-family:'IBM Plex Mono',monospace; font-size:.76rem; letter-spacing:.04em; color:rgba(255,255,255,.6);}
+  .dots{display:flex; gap:9px; margin-top:38px;}
+  .dot{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.28); cursor:pointer; border:none; padding:0;}
+  .dot.active{background:var(--red-lt);}
+
+  .cta-banner{background:var(--red); color:var(--paper);}
+  .cta-banner .wrap{
+    padding:64px 32px; display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,2.6vw,2.1rem); max-width:640px; color:var(--paper);}
+  .cta-banner .btn-outline{border-color:var(--paper); color:var(--paper);}
+  .cta-banner .btn-outline:hover{background:rgba(255,255,255,.15);}
+
+  footer{background:var(--ink); color:rgba(255,255,255,.78); padding:64px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px;}
+  .foot-word{font-family:'Fraunces',serif; font-size:1.3rem; color:var(--paper); font-weight:560;}
+  .foot-grid p{margin-top:16px; font-size:.9rem; color:rgba(255,255,255,.6); max-width:34ch;}
+  .foot-col h4{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--red-lt); font-weight:500; margin-bottom:16px;}
+  .foot-col a, .foot-col div{display:block; font-size:.9rem; color:rgba(255,255,255,.72); margin-bottom:10px;}
+  .foot-col a:hover{color:var(--red-lt);}
+  .foot-social{display:flex; gap:14px; margin-top:18px;}
+  .foot-social a{width:34px; height:34px; border:1px solid rgba(255,255,255,.25); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.72rem; font-family:'IBM Plex Mono',monospace;}
+  .foot-bottom{
+    margin-top:54px; padding-top:24px; border-top:1px solid rgba(255,255,255,.14);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    font-family:'IBM Plex Mono',monospace; font-size:.7rem; color:rgba(255,255,255,.5);
+  }
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr; gap:36px;}}
+
+  .skip{position:absolute; left:-999px; top:auto;}
+  .skip:focus{left:20px; top:20px; background:var(--paper); color:var(--ink); padding:10px 16px; z-index:999;}
+  :focus-visible{outline:2px solid var(--red); outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ *{transition:none !important; scroll-behavior:auto !important;} }
+</style><style>
+  /* --- Subpage additions --- */
+  .page-header{
+    background:var(--red-dk);
+    background-image: radial-gradient(ellipse 700px 400px at 90% -20%, rgba(217,143,132,.18), transparent 60%);
+    color:var(--paper); padding:64px 0 56px;
+  }
+  .page-header .eyebrow{color:var(--red-lt);}
+  .page-header h1{font-size:clamp(2.1rem,4vw,3.1rem); color:var(--paper); margin-top:14px;}
+  .page-header p{margin-top:16px; max-width:60ch; color:rgba(255,255,255,.82); font-size:1.02rem;}
+  .breadcrumb{font-family:'IBM Plex Mono',monospace; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.55);}
+  .breadcrumb a{color:rgba(255,255,255,.8);}
+  .breadcrumb a:hover{color:var(--red-lt);}
+
+  .content-block{padding:80px 0;}
+  .content-block + .content-block{padding-top:0;}
+  .two-col{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:start;}
+  @media(max-width:880px){.two-col{grid-template-columns:1fr; gap:36px;}}
+  .service-detail{padding:56px 0; border-top:1px solid var(--line);}
+  .service-detail:first-of-type{border-top:none;}
+  .service-detail .swatch-bar{width:44px; height:8px; border-radius:2px; margin-bottom:18px;}
+  .service-detail h2{font-size:1.7rem;}
+  .service-detail p{margin-top:14px; color:rgba(34,21,19,.75); max-width:68ch;}
+  .service-detail ul{margin:16px 0 0; padding-left:20px; color:rgba(34,21,19,.75); max-width:68ch;}
+  .service-detail li{margin-bottom:6px;}
+
+  .badge-row{display:flex; flex-wrap:wrap; gap:14px 28px; margin:36px 0 8px;}
+  .badge-pill{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; color:var(--red); border:1px solid var(--line); border-radius:999px; padding:8px 16px;}
+
+  .review-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:980px){.review-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.review-grid{grid-template-columns:1fr;}}
+  .review-card{background:var(--paper-warm); border:1px solid var(--line); border-radius:4px; padding:26px 24px; display:flex; flex-direction:column;}
+  .review-card .rmark{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--red-lt); line-height:1; margin-bottom:4px;}
+  .review-card p{font-family:'Fraunces',serif; font-style:italic; font-size:1rem; line-height:1.5; color:var(--ink); flex-grow:1;}
+  .review-card .rattrib{margin-top:16px; font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; color:rgba(34,21,19,.55);}
+
+  .form-wrap{background:var(--paper-warm); border:1px solid var(--line); border-radius:4px; padding:38px;}
+  .form-row{margin-bottom:18px;}
+  .form-row label{display:block; font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(34,21,19,.6); margin-bottom:8px;}
+  .form-row input, .form-row textarea{
+    width:100%; border:1px solid var(--line); border-radius:2px; padding:12px 14px;
+    font-family:'Work Sans',sans-serif; font-size:.95rem; background:var(--paper); color:var(--ink);
+  }
+  .form-row textarea{min-height:120px; resize:vertical;}
+  .form-row input:focus, .form-row textarea:focus{outline:2px solid var(--red); outline-offset:1px;}
+  .info-list{display:flex; flex-direction:column; gap:26px;}
+  .info-list .ilabel{font-family:'IBM Plex Mono',monospace; font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--red); margin-bottom:6px;}
+  .info-list .ival{font-family:'Fraunces',serif; font-size:1.15rem;}
+  .map-embed{width:100%; height:280px; border:0; border-radius:4px; margin-top:36px; filter:grayscale(.15);}
+
+  .work-grid2{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  @media(max-width:900px){.work-grid2{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.work-grid2{grid-template-columns:1fr;}}
+  .wpanel{position:relative; border-radius:4px; overflow:hidden; min-height:230px; display:flex; align-items:flex-end; padding:22px; color:var(--paper); box-shadow:var(--shadow);}
+  .wpanel::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,.45), transparent 55%);}
+  .wpanel .ptag{font-family:'IBM Plex Mono',monospace; font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; opacity:.85; position:relative; display:block; margin-bottom:4px;}
+  .wpanel .ptitle{font-family:'Fraunces',serif; font-size:1.08rem; font-weight:560; position:relative;}
+</style>
+
+</head>
+<body>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<div class="utility">
+  <div class="wrap">
+    <span class="u-hide">2240 Saw Mill River Rd, Elmsford, NY. Open Mon–Fri, 8am–4pm</span>
+    <div class="u-right">
+      <span class="u-hide">Family-owned since 1979</span>
+      <a href="tel:9142385388">914-238-5388</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav-row">
+    <a href="index.html" class="wordmark">Korth &amp; Shannahan<small>Painting &amp; Carpentry</small></a>
+    <nav class="primary">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Our Work</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-red header-cta">Get Free Estimate</a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<main id="main">
+  <section class="page-header">
+    <div class="wrap">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Services</div>
+      <h1>Transformative home painting and carpentry in Westchester County</h1>
+      <p>Custom millwork, painting, molding, cabinetry, and more, handled by one full-time crew who follows every job from planning through cleanup.</p>
+    </div>
+  </section>
+
+  <section class="content-block section">
+    <div class="wrap">
+      <div class="service-detail" style="border-top:none; padding-top:0;">
+        <div class="swatch-bar" style="background:#C1543F"></div>
+        <h2>Residential Painting Services</h2>
+        <p>We've always been the premier interior and exterior residential painting company homeowners trust throughout our history. We've painted hundreds of homes throughout Westchester County. Our team can help you choose the perfect color to match your home's style and your own personal aesthetic, whether you want bold, beautiful colors or something calming and understated.</p>
+        <ul>
+          <li><strong>Interior</strong>: vibrant, high-quality paints to bring your room design to life</li>
+          <li><strong>Exterior</strong>: paint products designed to withstand New York's weather while boosting curb appeal</li>
+        </ul>
+      </div>
+
+      <div class="service-detail">
+        <div class="swatch-bar" style="background:#8C3F2C"></div>
+        <h2>Carpentry Services</h2>
+        <p>Our trusted master carpenters can handle any custom millwork or carpentry project, backed by our four-year warranty. Finish carpentry work can improve both your home's energy efficiency and its style.</p>
+        <ul>
+          <li>Window &amp; door installation</li>
+          <li>Custom millwork and cabinetry installation</li>
+          <li>Crown molding &amp; baseboards</li>
+          <li>Deck repairs and replacement carpentry</li>
+        </ul>
+      </div>
+
+      <div class="service-detail">
+        <div class="swatch-bar" style="background:#B8873D"></div>
+        <h2>Historical Restoration</h2>
+        <p>If you live in a historic home, you're required by state and local ordinances to maintain a certain style when updating it. Since 1979, we've provided historic home restoration for homeowners throughout the community, with licensed employees who understand the importance of your home's unique charm.</p>
+        <ul>
+          <li>Exterior painting to period-accurate standards</li>
+          <li>Crown molding, baseboard &amp; beam wraps</li>
+          <li>Historic paint and color consultations</li>
+        </ul>
+      </div>
+
+      <div class="service-detail">
+        <div class="swatch-bar" style="background:#A6332B"></div>
+        <h2>Lead Paint Removal</h2>
+        <p>Lead paint was used in homes until the late 1970s, and is especially hazardous for young children. If your home was built before 1970, there's a strong chance it was painted with lead paint. Our knowledgeable and trained team has the equipment and certification to remove it safely.</p>
+      </div>
+
+      <div class="service-detail">
+        <div class="swatch-bar" style="background:#6E211A"></div>
+        <h2>Deck Staining &amp; Restoration</h2>
+        <p>We revitalize decks that have faded due to weather, with restoration for rotting boards, handrails, and beams, finished with a fresh stain so you get the most from your outdoor entertainment space.</p>
+      </div>
+
+      <div class="service-detail">
+        <div class="swatch-bar" style="background:#8C6A3B"></div>
+        <h2>Wallpaper Install &amp; Removal</h2>
+        <p>Wallpaper is a laborious, time-consuming project best left to professionals. We offer both careful removal of existing paper and clean, professional-looking installation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="wrap">
+      <h2>Not sure which service is right for your home? Let's talk it through.</h2>
+      <a href="contact.html" class="btn btn-outline">Schedule a Consultation</a>
+    </div>
+  </section>
+</main>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-word">Korth &amp; Shannahan</div>
+      <p>Full-time, in-house painters and finish carpenters serving Westchester County homeowners since 1979.</p>
+      <div class="foot-social">
+        <a href="https://www.facebook.com/korthpainting/" aria-label="Facebook">f</a>
+        <a href="https://www.instagram.com/korth_painting/" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <div>2240 Saw Mill River Rd<br>Elmsford, NY 10523</div>
+      <a href="tel:9142385388">914-238-5388</a>
+      <div>Mon–Fri: 8am–4pm<br>Sat–Sun: Closed</div>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="work.html">Gallery</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Korth &amp; Shannahan Painting and Carpentry. All rights reserved.</span>
+    <span>Privacy Policy &nbsp;&nbsp; Sitemap</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav.primary');
+  toggle.addEventListener('click', () => {
+    const open = nav.style.display === 'flex';
+    nav.style.display = open ? 'none' : 'flex';
+    nav.style.cssText += open ? '' : 'display:flex; flex-direction:column; position:absolute; top:84px; left:0; right:0; background:var(--paper); padding:20px 24px; border-bottom:1px solid rgba(0,0,0,.1); gap:18px;';
+  });
+
+  const quotes = [
+    { q: "We just had Will Korth and his guys do an interior painting job, plus repairs of baseboards throughout the basement. The experience reminded me why we have used Korth & Shannahan exclusively for over a decade.", a: "Westchester Homeowner, Interior Painting and Carpentry Client" },
+    { q: "The entire crew was extremely professional. Everyone was prompt and did a beautiful job. We never expected that our house could look so good, and each day our yard was left spotless.", a: "Westchester Homeowner, Exterior Painting Client" },
+    { q: "Korth and Shannahan have done many jobs at my house over the past ten years: interior, exterior, and carpentry. The workers are always on time, keep the site clean, and are respectful and polite.", a: "Long-Time Client, Repeat Customer" },
+    { q: "You are craftsmen. You do the job correctly and carefully with skill, patience, and good will, with a can-do attitude and the know-how to tackle repairs the right way.", a: "Westchester Homeowner, Restoration Project" },
+    { q: "Working on many homes in Westchester, I can say Will Korth and his staff are by far the county's number one painting and carpentry outfit. They hold themselves to a standard that exceeds most.", a: "Local Real Estate Professional" }
+  ];
+  const quoteText = document.getElementById('quoteText');
+  const quoteAttrib = document.getElementById('quoteAttrib');
+  const dotsEl = document.getElementById('dots');
+  if (quoteText && quoteAttrib && dotsEl) {
+    let idx = 0;
+    quotes.forEach((_, i) => {
+      const b = document.createElement('button');
+      b.className = 'dot' + (i === 0 ? ' active' : '');
+      b.addEventListener('click', () => show(i));
+      dotsEl.appendChild(b);
+    });
+    function show(i){
+      idx = i;
+      quoteText.textContent = quotes[i].q;
+      quoteAttrib.textContent = quotes[i].a;
+      [...dotsEl.children].forEach((d,j) => d.classList.toggle('active', j===i));
+    }
+    setInterval(() => show((idx+1) % quotes.length), 6500);
+  }
+</script>
+
+</body>
+</html>
